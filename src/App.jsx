@@ -11,6 +11,7 @@ import { Instagram, Twitter, Mail, ArrowRight, ArrowLeft, X, Download, Menu, Che
 import cardGLB from './assets/card.glb';
 import lanyardImg from './assets/lanyard.png';
 import resumePDF from './assets/resume.pdf';
+import { PROJECTS_DATA } from './data/projects';
 
 // Extend Three.js with MeshLine
 extend({ MeshLineGeometry, MeshLineMaterial });
@@ -198,6 +199,11 @@ const About = () => {
         return (
            <div className="uppercase leading-relaxed text-sm md:text-base font-medium space-y-8 animate-float delay-100">
             <div>
+              <h3 className="font-bold mb-2">Software Engineering Intern</h3>
+              <p className="text-gray-500">Aubot • 2025-Present</p>
+              <p className="text-sm mt-2">Designed and developed a comprehensive computer science learning platform for children, creating the web interfaces for students and guardians while writing specifications for automated coding exercises.</p>
+            </div>
+            <div>
               <h3 className="font-bold mb-2">Teaching Assisstant</h3>
               <p className="text-gray-500">Technologies for Kids • 2025-Present</p>
               <p className="text-sm mt-2">Taught students aged 5 to 18 in drone coding & creative flight, coding & robotics, and 2D game design programs.</p>
@@ -326,6 +332,44 @@ const About = () => {
   );
 };
 
+// Helper function to render content with bold labels and bullet points
+const renderFormattedContent = (content) => {
+  if (!content) return null;
+  
+  // Split content by newlines
+  const lines = content.split('\n');
+  
+  return lines.map((line, index) => {
+    // Check if line starts with a bullet point (•)
+    if (line.trim().startsWith('•')) {
+      // Find the colon to separate label from description
+      const colonIndex = line.indexOf(':');
+      
+      if (colonIndex !== -1) {
+        // Extract label (text before colon) and description (text after colon)
+        const label = line.substring(0, colonIndex + 1).trim(); // Include bullet and label with colon
+        const description = line.substring(colonIndex + 1).trim(); // Description after colon
+        
+        return (
+          <React.Fragment key={index}>
+            <span className="font-bold text-black">{label}</span>
+            {description && <span className="text-gray-600"> {description}</span>}
+            {index < lines.length - 1 && <br />}
+          </React.Fragment>
+        );
+      }
+    }
+    
+    // For non-bullet lines, render as-is
+    return (
+      <React.Fragment key={index}>
+        {line}
+        {index < lines.length - 1 && <br />}
+      </React.Fragment>
+    );
+  });
+};
+
 const ProjectDetail = ({ project, onNext, onPrev, onClose, hasNext, hasPrev }) => (
   <div className="min-h-screen bg-white animate-float pt-32 pb-24">
     <div className="max-w-5xl mx-auto px-6 md:px-12">
@@ -372,50 +416,50 @@ const ProjectDetail = ({ project, onNext, onPrev, onClose, hasNext, hasPrev }) =
            <div className="mt-12 text-base leading-loose text-black normal-case font-medium">
              {project.challenge}
            </div>
-           <div className="mt-1 text-base leading-loose text-gray-600 normal-case font-medium">
-             {project.challenge_content}
+           <div className="mt-1 text-base leading-loose text-gray-600 normal-case font-medium whitespace-pre-line">
+             {renderFormattedContent(project.challenge_content)}
            </div>
            <div className="mt-12 text-base leading-loose text-black normal-case font-medium">
              {project.solution}
            </div>
-           <div className="mt-1 text-base leading-loose text-gray-600 normal-case font-medium">
-             {project.solution_content}
+           <div className="mt-1 text-base leading-loose text-gray-600 normal-case font-medium whitespace-pre-line">
+             {renderFormattedContent(project.solution_content)}
            </div>
            <div className="mt-12 text-base leading-loose text-black normal-case font-medium">
              {project.tech}
            </div>
-           <div className="mt-1 text-base leading-loose text-gray-600 normal-case font-medium">
-             {project.tech_content}
+           <div className="mt-1 text-base leading-loose text-gray-600 normal-case font-medium whitespace-pre-line">
+             {renderFormattedContent(project.tech_content)}
            </div>
            <div className="mt-12 text-base leading-loose text-black normal-case font-medium">
              {project.feature}
            </div>
            <div className="mt-1 text-base leading-loose text-gray-600 normal-case font-medium whitespace-pre-line">
-             {project.feature_content}
+             {renderFormattedContent(project.feature_content)}
            </div>
            <div className="mt-12 text-base leading-loose text-black normal-case font-medium">
              {project.design}
            </div>
-           <div className="mt-1 text-base leading-loose text-gray-600 normal-case font-medium">
-             {project.design_content}
+           <div className="mt-1 text-base leading-loose text-gray-600 normal-case font-medium whitespace-pre-line">
+             {renderFormattedContent(project.design_content)}
            </div>
            <div className="mt-12 text-base leading-loose text-black normal-case font-medium">
              {project.perf}
            </div>
-           <div className="mt-1 text-base leading-loose text-gray-600 normal-case font-medium">
-             {project.perf_content}
+           <div className="mt-1 text-base leading-loose text-gray-600 normal-case font-medium whitespace-pre-line">
+             {renderFormattedContent(project.perf_content)}
            </div>
            <div className="mt-12 text-base leading-loose text-black normal-case font-medium">
              {project.result}
            </div>
-           <div className="mt-1 text-base leading-loose text-gray-600 normal-case font-medium">
-             {project.result_content}
+           <div className="mt-1 text-base leading-loose text-gray-600 normal-case font-medium whitespace-pre-line">
+             {renderFormattedContent(project.result_content)}
            </div>
            <div className="mt-12 text-base leading-loose text-black normal-case font-medium">
              {project.future}
            </div>
-           <div className="mt-1 text-base leading-loose text-gray-600 normal-case font-medium">
-             {project.future_content}
+           <div className="mt-1 text-base leading-loose text-gray-600 normal-case font-medium whitespace-pre-line">
+             {renderFormattedContent(project.future_content)}
            </div>
            <p className="mt-12 text-base md:text-base leading-relaxed font-bold uppercase">{project.conclusion}</p>
         </div>
@@ -435,7 +479,7 @@ const ProjectDetail = ({ project, onNext, onPrev, onClose, hasNext, hasPrev }) =
        <div className="w-32">
          {hasPrev && (
            <button onClick={onPrev} className="group flex items-center gap-2 text-sm font-bold uppercase tracking-widest hover:opacity-50 transition-opacity">
-             <ChevronLeft size={16} /> Next
+             <ChevronLeft size={16} /> Previous
            </button>
          )}
        </div>
@@ -443,194 +487,13 @@ const ProjectDetail = ({ project, onNext, onPrev, onClose, hasNext, hasPrev }) =
        <div className="w-32 text-right">
          {hasNext && (
            <button onClick={onNext} className="group flex items-center justify-end gap-2 text-sm font-bold uppercase tracking-widest hover:opacity-50 transition-opacity">
-             Previous <ChevronRight size={16} />
+             Next <ChevronRight size={16} />
            </button>
          )}
        </div>
     </div>
   </div>
 );
-
-// --- MOCK DATA ---
-const PROJECTS_DATA = [
-  { 
-  id: 1, title: "Laser Tank", date: "MAY 2024", category: "Game Development", 
-  langs: "C, Makefile",
-  ov: "A 2D terminal-based game where the player moves and shoots laser to defeat an enemy tank and win", 
-  challenge: "CHALLENGE", 
-  challenge_content: "The challenge is to implement a simple game inspired from a classical puzzle game 'Laser Tank'. ", 
-  solution: "SOLUTION", 
-  solution_content: "The program will read the parameters from an input file and utilize them for the game configuration and create a dynamically-allocated 2D char array to make a simple ASCII-based game then receive user input to control the flow of the game." , 
-  tech: "TECHNICAL ARCHITECTURE", 
-  tech_content: "The program is implemented using C with a Makefile to compile the program.", 
-  feature: "KEY FEATURES", 
-  feature_content: "1. Laser Reflection Physics: Lasers dynamically interact with mirrors and change direction based on the angle of reflection.\n2. Map Loading System: The game supports loading custom level layouts from text files, allowing for infinite replayability.\n3. Game Recording: 2D Dynamic Arrays for the map and a custom LinkedList for game history.", 
-  design: "USER EXPERIENCE DESIGN",  
-  design_content: "The game utilizes a clean, ASCII-based interface that prioritizes clarity. Controls are intuitive (WASD for movement, 'f' to fire), and visual feedback is provided through color-coded laser beams (red) and clear victory/defeat messages.", 
-  perf: "PERFORMANCE", 
-  perf_content: "The game is highly optimized with low memory footprint. Dynamic memory allocation is carefully managed with corresponding free calls to prevent leaks.", 
-  result: "OUTCOMES", 
-  result_content: "The project successfully demonstrates complex game logic in a low-level language. It resulted in a fully playable game that handles user input, file processing, and dynamic data structures robustly. The modular design allows for easy addition of new features.", 
-  future: "FUTURE ENHANCEMENTS", 
-  future_content: "Possible future enhancements include porting the rendering to ncurses for a smoother UI without screen clearing, implementing an algorithm for the enemy tank to hunt the player, and adding a level editor directly within the game.", 
-  conclusion: "I successfully combined strategic gameplay with robust software engineering principles of low-level programming by building the engine from scratch in C. I gained a deep understanding of memory management, pointer arithmetic, and algorithm design. The final product is not just a functional game, but a system that serves as a strong foundation for future development in game programming.", 
-  images: ["https://attachments.office.net/owa/t.nguyen409%40student.curtin.edu.au/service.svc/s/GetAttachmentThumbnail?id=AAkALgAAAAAAHYQDEapmEc2byACqAC%2FEWg0AVcQ71Ugf10K%2Bsf%2F9NvhMgwAAx3EqPgAAARIAEABgj3MeQaIxRK7oMTiImE8G&thumbnailType=2&token=eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjFsbFd5KzJBZkZaZVNLMEtYZGJTU3Z6UWxPYz0iLCJ4NXQiOiIxbGxXeSsyQWZGWmVTSzBLWGRiU1N2elFsT2M9Iiwibm9uY2UiOiJiLXJGU3ZONGpkbThNVmZHUGNmMlplb3VDaUZubjNocnZfeWFySWo5dkxoX29HMmpzMlZpN295LWlra0dMYVZCS3BuOXB2aC1sdkc4bE9QMzl0dlFqTlgwNlFWb243S01CRGsxS0ZCa1BfRHRySkNGbUF2eEJ3VWx4TWtvc2xXYy1Nb2NBSFg2Tm1mcUxiQi1UOGVvdlJjVFFadUlRRmM0VUxnMmJPdGVCOUUiLCJpc3Nsb2MiOiJTWThQMzAwTUIwOTA1Iiwic3JzbiI6NjM5MDAzODAxMzQ1OTkzMDcwfQ.eyJzYXAtdmVyc2lvbiI6IjMzIiwiYXBwaWQiOiJhZjNlYmJiYS1jMjNmLTQ5MmEtYWE5My04MzQyMTY5NmVjNGIiLCJpc3NyaW5nIjoiV1ciLCJhcHBpZGFjciI6IjIiLCJhcHBfZGlzcGxheW5hbWUiOiIiLCJ1dGkiOiJkODc1ZGUyNy00YjlmLTRkYzktODdiNC03MDc3NzI2YjQ2MTkiLCJpYXQiOjE3NjQ4NDMzMTMsInZlciI6IlNUSS5Vc2VyLkNhbGxiYWNrVG9rZW4uVjEiLCJ0aWQiOiI1YTc0MGNkNzU3Njg0ZDA5YWUxM2Y3MDZiMDlmYTIyYyIsInRydXN0ZWRmb3JkZWxlZ2F0aW9uIjoiZmFsc2UiLCJ0b3BvbG9neSI6IntcIlR5cGVcIjpcIk1hY2hpbmVcIixcIlZhbHVlXCI6XCJTWThQMzAwTUIwOTA1LkFVU1AzMDAuUFJPRC5PVVRMT09LLkNPTVwifSIsInJlcXVlc3Rvcl9hcHBpZCI6IjE1N2NkZmJmLTczOTgtNGE1Ni05NmMzLWU5M2U5YWIzMDliNSIsInJlcXVlc3Rvcl9hcHBfZGlzcGxheW5hbWUiOiJPZmZpY2UgMzY1IEV4Y2hhbmdlIE1pY3Jvc2VydmljZSIsInNjcCI6Ik93YUF0dGFjaG1lbnRzLlJlYWQiLCJvaWQiOiI5NjQ5OWY5MS0zZDdlLTRhOWEtODc2OS04MDM1MDBjYjEzY2UiLCJwdWlkIjoiMTAwMzIwMDQ0M0I0MTBFNiIsInNtdHAiOiJ0Lm5ndXllbjQwOUBzdHVkZW50LmN1cnRpbi5lZHUuYXUiLCJ1cG4iOiIyMjI1OTQ5OUBzdHVkZW50LmN1cnRpbi5lZHUuYXUiLCJ1c2VyY2FsbGJhY2t1c2VyY29udGV4dGlkIjoiMzI1MzMxMDA0MDVjNGUwNjljMDlkMzU3MzZiNDVhYTQiLCJzaWduaW5fc3RhdGUiOiJrbXNpIiwiZW1iZWRkZWR1c2VydG9rZW50eXBlIjoiQUFEIiwidXNlcmFjY2Vzc3Rva2VuIjoiZXlKMGVYQWlPaUpLVjFRaUxDSnViMjVqWlNJNklsOXBSMDVKV1VkZmRXNUdPR3huU0dKS2NqaFNkVXhPVlMxS1JEZDZkblYzZUhKcFRXZHRiVXRMVTJNaUxDSmhiR2NpT2lKU1V6STFOaUlzSW5nMWRDSTZJbkowYzBaVUxXSXROMHgxV1RkRVZsbGxVMDVMWTBsS04xWnVZeUlzSW10cFpDSTZJbkowYzBaVUxXSXROMHgxV1RkRVZsbGxVMDVMWTBsS04xWnVZeUo5LmV5SmhkV1FpT2lKb2RIUndjem92TDI5MWRHeHZiMnN1YjJabWFXTmxMbU52YlNJc0ltbHpjeUk2SW1oMGRIQnpPaTh2YzNSekxuZHBibVJ2ZDNNdWJtVjBMelZoTnpRd1kyUTNMVFUzTmpndE5HUXdPUzFoWlRFekxXWTNNRFppTURsbVlUSXlZeThpTENKcFlYUWlPakUzTmpRNE1qZzFNek1zSW01aVppSTZNVGMyTkRneU9EVXpNeXdpWlhod0lqb3hOelkwT1RJd056azRMQ0poWTJOMElqb3dMQ0poWTNJaU9pSXhJaXdpWVdsdklqb2lRVmhSUVdrdk9HRkJRVUZCVG5GRlZYWjJlRVpZUWxJd05rNUxRV2hCZWxwbk5FZFphVk5sZHpCbVVXVkhMMHc1YlhWS2RrUkdlbW8yZVUxS01rbFpXVWg0VnpWclRHNUpiMU5HTkM5dVJXZDFVWFJqYm05clVuQlJVM2ROWVRoeVNtdzBkVzFsWkRobllUVkxTbTB2VWk5TmRtOXlXbEJ6TmpKRlJXdzNjVlIxTW5OR1kybDNVVVZRUWpWMFlXcHJXbGs1Vm1WS2FGTXhRVTVJUVhSamRsRlJQVDBpTENKaGJYSWlPbHNpY0hka0lpd2liV1poSWwwc0ltRndjRjlrYVhOd2JHRjVibUZ0WlNJNklrOXVaU0JQZFhSc2IyOXJJRmRsWWlJc0ltRndjR2xrSWpvaU9URTVPV0ptTWpBdFlURXpaaTAwTVRBM0xUZzFaR010TURJeE1UUTNPRGRsWmpRNElpd2lZWEJ3YVdSaFkzSWlPaUl3SWl3aVkyRndiMnhwWkhOZmJHRjBaV0pwYm1RaU9sc2lZbVpqTnpObU9URXROMlF6WlMwME1ERTJMVGswWTJNdE1qTTBZMkV3TW1NM01USXpJbDBzSW1WdVpuQnZiR2xrY3lJNlcxMHNJbVpoYldsc2VWOXVZVzFsSWpvaVRtZDFlV1Z1SWl3aVoybDJaVzVmYm1GdFpTSTZJbFJvWVdrZ1IybGhJRTVuWVc0aUxDSnBaSFI1Y0NJNkluVnpaWElpTENKcGNHRmtaSElpT2lJeExqRTBOaTR4T1RNdU1USTFJaXdpYkc5bmFXNWZhR2x1ZENJNklrOHVRMmxSTlU1cVVUVlBWMWsxVFZNd2VscEVaR3hNVkZKb1QxZEZkRTlFWXpKUFV6QTBUVVJOTVUxRVFtcFpha1Y2V1RKVlUwcEVWbWhPZWxGM1dUSlJNMHhVVlROT2FtZDBUa2RSZDA5VE1XaGFWRVY2VEZkWk0wMUVXbWxOUkd4dFdWUkplVmw0YjJWTmFrbDVUbFJyTUU5VWJFRmpNMUl4V2tkV2RXUkROV3BrV0Vvd1lWYzBkVnBYVWpGTWJVWXhTVUZyUFNJc0ltNWhiV1VpT2lKVWFHRnBJRWRwWVNCT1oyRnVJRTVuZFhsbGJpQW9VM1IxWkdWdWRDa2lMQ0p2YVdRaU9pSTVOalE1T1dZNU1TMHpaRGRsTFRSaE9XRXRPRGMyT1MwNE1ETTFNREJqWWpFelkyVWlMQ0p2Ym5CeVpXMWZjMmxrSWpvaVV5MHhMVFV0TWpFdE1UVTNOVFk1TmpBMk55MHlOekkzT1RjMk9UTTRMVE13TXpjMk9URTVNRGN0TmpnMU5UWTBJaXdpY0hWcFpDSTZJakV3TURNeU1EQTBORE5DTkRFd1JUWWlMQ0p5YUNJNklqRXVRVlZGUVRGM2VEQlhiV2hZUTFVeWRVVmZZMGR6U2kxcFRFRkpRVUZCUVVGQlVFVlFlbWRCUVVGQlFVRkJRVVJ6UVU1NFFrRkJMaUlzSW5OamNDSTZJa0Z1WVd4NWRHbGpjeTVTWldGa1YzSnBkR1VnUTJGc1pXNWtZWEp6TGxKbFlXUlhjbWwwWlNCRFlXeGxibVJoY25NdVVtVmhaRmR5YVhSbExrRnNiQ0JEWVd4bGJtUmhjbk11VW1WaFpGZHlhWFJsTGxOb1lYSmxaQ0JEWVd4bGJtUmhjbk10U1c1MFpYSnVZV3d1VW1WaFpGZHlhWFJsSUVOb1lXNXVaV3d1UTNKbFlYUmxJRU5vWVc1dVpXd3VVbVZoWkVKaGMybGpMa0ZzYkNCRGFHRnVibVZzVFdWdFltVnlMbEpsWVdRdVFXeHNJRU5vWVc1dVpXeE5aVzFpWlhJdVVtVmhaRmR5YVhSbExrRnNiQ0JEYUdGdWJtVnNUV1Z6YzJGblpTNVNaV0ZrTGtGc2JDQkRhR0YwTGxKbFlXUWdRMmhoZEM1U1pXRmtWM0pwZEdVdVFXeHNJRU52Ykd4aFlpMUpiblJsY201aGJDNVNaV0ZrVjNKcGRHVWdRMjl1Ym1WamRHVmtRV05qYjNWdWRDMUpiblJsY201aGJDNVNaV0ZrVjNKcGRHVWdRMjl1Ym1WamRHOXljeTVTWldGa1YzSnBkR1V1VTJoaGNtVmtJRU52Ym5SaFkzUnpMbEpsWVdSWGNtbDBaU0JEYjI1MFlXTjBjeTVTWldGa1YzSnBkR1V1VTJoaGNtVmtJRVJwY21WamRHOXllUzVTWldGa0xrZHNiMkpoYkNCRWFYSmxZM1J2Y25rdVVtVmhaQzVNYjJOaGJDQkVWMFZ1WjJsdVpTMUpiblJsY201aGJDNVNaV0ZrSUVWQlV5NUJZMk5sYzNOQmMxVnpaWEl1UVd4c0lFWnBiR1Z6TGxKbFlXUlhjbWwwWlM1QmJHd2dSbWxzWlhNdVVtVmhaRmR5YVhSbExsTm9ZWEpsWkNCR2IyTjFjMlZrU1c1aWIzZ3RTVzUwWlhKdVlXd3VVbVZoWkZkeWFYUmxJRWR5YjNWd0xsSmxZV1JYY21sMFpTNUJiR3dnUjNKdmRYQXVVbVZoWkZkeWFYUmxMa0ZzYkM1VFpIQWdURzlqWVhScGIyNXpMVWx1ZEdWeWJtRnNMbEpsWVdSWGNtbDBaU0JOWVdsc0xsSmxZV1JYY21sMFpTQk5ZV2xzTGxKbFlXUlhjbWwwWlM1QmJHd2dUV0ZwYkM1U1pXRmtWM0pwZEdVdVUyaGhjbVZrSUUxaGFXd3VVMlZ1WkNCTllXbHNMbE5sYm1RdVUyaGhjbVZrSUUxaGFXeGliM2hUWlhSMGFXNW5jeTVTWldGa1YzSnBkR1VnVFdGcGJHSnZlRk5sZEhScGJtZHpMbEpsWVdSWGNtbDBaUzVCYkd3Z1RtOTBaWE11VW1WaFpDQk9iM1JsY3k1U1pXRmtWM0pwZEdVZ1RtOTBaWE10U1c1MFpYSnVZV3d1VW1WaFpGZHlhWFJsSUU1dmRHbG1hV05oZEdsdmJuTXRTVzUwWlhKdVlXd3VVbVZoWkZkeWFYUmxJRTl1YkdsdVpVMWxaWFJwYm1kekxsSmxZV1JYY21sMFpTQlBkWFJzYjI5clEyOXdhV3h2ZEMxSmJuUmxjbTVoYkM1U1pXRmtWM0pwZEdVZ1QzVjBiRzl2YTBOdmNHbHNiM1JNYVdObGJuTmxMVWx1ZEdWeWJtRnNMbEpsWVdRdVUyUndJRTkxZEd4dmIydFRaWEoyYVdObExrRmpZMlZ6YzBGelZYTmxjaTVCYkd3Z1QzVjBiRzl2YTFObGNuWnBZMlV1VG05MGFXWnBZMkYwYVc5dWMwTm9ZVzV1Wld3dVFXeHNJRTlYUVM1QlkyTmxjM05CYzFWelpYSXVRV3hzSUZCbGIzQnNaUzVTWldGa0lGQmxiM0JzWlM1U1pXRmtWM0pwZEdVZ1VHVnZjR3hsVUhKbFpHbGpkR2x2Ym5NdFNXNTBaWEp1WVd3dVVtVmhaQ0JRWlc5d2JHVlRaWFIwYVc1bmN5NVNaV0ZrTGtGc2JDQlFiR0ZqWlM1U1pXRmtMa0ZzYkNCUWJHRmpaUzVTWldGa1YzSnBkR1V1UVd4c0lGQnZiR2xqZVM1U1pXRmtMa0ZzYkM1VFpIQWdVSEpsYldsMWJTMUpiblJsY201aGJDNVNaV0ZrVjNKcGRHVWdVSEpwZG1sc1pXZGxMazl3Wlc1QmMxTjVjM1JsYlNCVGFXZHVZV3d1VW1WaFpGZHlhWFJsSUZOcFoyNWhiSE11VW1WaFpDQlRhV2R1WVd4ekxsSmxZV1JYY21sMFpTQlRhV2R1WVd4ekxVbHVkR1Z5Ym1Gc0xsSmxZV1F1VTJoaGNtVmtJRk5wWjI1aGJITXRTVzUwWlhKdVlXd3VVbVZoWkZkeWFYUmxMbE5vWVhKbFpDQlRkV0p6ZEhKaGRHVlRaV0Z5WTJndFNXNTBaWEp1WVd3dVVtVmhaRmR5YVhSbElGUmhaM011VW1WaFpGZHlhWFJsSUZSaGFXeHZjbVZrUlhod1pYSnBaVzVqWlhNdFNXNTBaWEp1WVd3dVVtVmhaRmR5YVhSbElGUmhjMnR6TGxKbFlXUlhjbWwwWlNCVVlYTnJjeTVTWldGa1YzSnBkR1V1VTJoaGNtVmtJRlJsWVcwdVVtVmhaRUpoYzJsakxrRnNiQ0JVYjJSdkxVbHVkR1Z5Ym1Gc0xsSmxZV1JYY21sMFpTQlZjMlZ5TGtsdWRtbDBaUzVCYkd3dVUyUndJRlZ6WlhJdVVtVmhaQzVCYkd3Z1ZYTmxjaTVTWldGa0xsTmtjQ0JWYzJWeUxsSmxZV1JDWVhOcFl5QlZjMlZ5TGxKbFlXUkNZWE5wWXk1QmJHd2dWWE5sY2k1U1pXRmtRbUZ6YVdNdVUyaGhjbVZrSUZWelpYSXVVbVZoWkZkeWFYUmxJRlZ6WlhJdVVtVmhaRmR5YVhSbExsTm9ZWEpsWkNCVmMyVnlMVWx1ZEdWeWJtRnNMbEpsWVdSWGNtbDBaU0lzSW5ObFkyRjFaQ0k2ZXlKaGRXUWlPaUl3TURBd01EQXdNeTB3TURBd0xUQXdNREF0WXpBd01DMHdNREF3TURBd01EQXdNREFpTENKelkzQWlPaUpIY205MWNDNVNaV0ZrVjNKcGRHVXVRV3hzSUZCdmJHbGplUzVTWldGa0xrRnNiQ0JWYzJWeUxsSmxZV1FnVlhObGNpNUpiblpwZEdVdVFXeHNJRXhwWTJWdWMyVkJjM05wWjI1dFpXNTBMbEpsWVdRdVFXeHNJbjBzSW5OcFpDSTZJakF3WVdJell6QTVMV05oT0dZdE0yUmhNaTAxWldWbUxUZ3daVFptTkdKak5XVXpZU0lzSW5OcFoyNXBibDl6ZEdGMFpTSTZXeUpyYlhOcElsMHNJbk4xWWlJNkluUXhha3RoUW1wSVpUSldSak5mVms1QlkwUm9Ta1pRZURGVFZYZEdUR3A1TUZsMFoxa3hZMlJWUlhjaUxDSjBaVzVoYm5SZmNtVm5hVzl1WDNOamIzQmxJam9pVDBNaUxDSjBhV1FpT2lJMVlUYzBNR05rTnkwMU56WTRMVFJrTURrdFlXVXhNeTFtTnpBMllqQTVabUV5TW1NaUxDSjFibWx4ZFdWZmJtRnRaU0k2SWpJeU1qVTVORGs1UUhOMGRXUmxiblF1WTNWeWRHbHVMbVZrZFM1aGRTSXNJblZ3YmlJNklqSXlNalU1TkRrNVFITjBkV1JsYm5RdVkzVnlkR2x1TG1Wa2RTNWhkU0lzSW5WMGFTSTZJa3B2YmkxNGRtWjRhRlZoV2sxRGJWQjROakpCUVZFaUxDSjJaWElpT2lJeExqQWlMQ0ozYVdSeklqcGJJbUkzT1daaVpqUmtMVE5sWmprdE5EWTRPUzA0TVRRekxUYzJZakU1TkdVNE5UVXdPU0pkTENKNGJYTmZZV04wWDJaamRDSTZJalVnTXlJc0luaHRjMTloZFdSZlozVnBaQ0k2SWpBd01EQXdNREF5TFRBd01EQXRNR1ptTVMxalpUQXdMVEF3TURBd01EQXdNREF3TUNJc0luaHRjMTlqWXlJNld5SkRVREVpWFN3aWVHMXpYMlowWkNJNkltOXphV1ZtVkU1R00weHdUV3hGTlZkSlJ6ZDVNVXByYkdwWFNFZENZMFk1VDB4WlkwVkRURzVZT0dkQ1dWaFdlbVJJU21oaVIyeG9XbGRHZW1SRE1XdGpNakY2SWl3aWVHMXpYMmxrY21Wc0lqb2lNU0F5T0NJc0luaHRjMTl6YzIwaU9pSXhJaXdpZUcxelgzTjFZbDltWTNRaU9pSTBJRE1pTENKNGJYTmZkRzUwWDJaamRDSTZJaklnTXlKOS5mT2VjVWRIeUZmbTNnS2JFb2R4eC1DNWxPRkF1dnZ2LUhIOWJIWk51X2g1emI5NzFNcHVhMjRkTmdjeTB2OE9zalBKRUdZb3hnbUFOdm03LV9GVFVkNjBRU2hjdU5aN1Z6a1VXWkx4dlV0VVNzZXpyNnVqY2dKbG13amhFbFFWZTBTRG1ONGNacC1RdTJUdlRGd0N0QXVubFV2b2lKNHlzTktDR2pGX1VVUGRWSjZKTWs5cU9vTEpEZzlBeHdHamdYUFJScFJPZjdkdmVIcVhBZXlaTTF4NWpHcnUyZnJreTc0U29aazZiNmxDMkJFeFQ3endHc0x1ZURYLVNGQll2bzFMbWxxZVFsc3ZBWC04TUZHOGNoUXpSOURSNjFldkxlNGRvMGc0bmZwS3BOU19uZHZtdTR6U0NKUGRiZVpuc2ZieEd5aVkxaXhSaVJTTnRZVVZSNWciLCJlcGsiOiJ7XCJrdHlcIjpcIlJTQVwiLFwiblwiOlwieVNkblMyVGwwaElXeTBDN2JnaVdoM0tGRWFIRWx4U3BYRjRjaGYxcHZxZWZhbzVDN3NDaEx0aXZIY18tcVA1aDdhRlprYnJudVZ5RV9xN2xwTVlpVzVtbmpkbXV3STZmRXc4dGhReHViV21uWjlHRGJEQzNaQnlVa1ZaNGRKX3RsYmdQc2I1bkwtYk1McUdvaWRZU1VkcDZZZUZEc1ZGOWhOWnZaZ0dTTFVTdENRdmFKQWp0S0p6QzMxYUxfS3BiczRPanF5VXJRbmROMkFNZnEyb1U5bk1vb1BWSGpMSUg2VkRJVjZZXzYwT2lXSU9mRV82Q01LR3I1QjRIdjJreVBTSDVVYVU5bzBDMFJpMFdoM0c1bF8ydmEwTGZ0V3E5TWdDVFhZLXRkVi1IYU9rbTNyYnVtelFIYTgtNkx3dVJ2cUR0U1R6OG0xN0FMYlo2TUQ2N2lRXCIsXCJlXCI6XCJBUUFCXCIsXCJhbGdcIjpcIlJTMjU2XCIsXCJleHBcIjpcIjE3NjQ5MzI3NTVcIixcImV4cF9kaWZmXCI6XCI4NjQwMFwiLFwia2lkXCI6XCJrcC1jbGtxWVZSejFzdGNZZmEtZWxra21MM0VcIn0uS2RvRzBPYnFMQ0dRQnZKeXcvMndyeVp3YWRDT004WDQ5L0xQcStUek1vZHRtQXphV3U5MjVsaW16UWlUM0o1TXJCQWpiTmxZR0tyQVJwZTJ5VEhzSU82YWRsQXpINytLU1JiUUhZQXJJV1R5djh2ZVI3NFNCSDczZG02OTAxeForRU9qUkV0N09HK05lczZjOTFIUDNmcXVmRDdnVHNYY205Vm90U2gwWEdWSUZGT05kc3Yycnp4cXEwRlRsQlRKb1cvL2lnMnNUTWxXNS96V0t6cCt0c1JBakwzY0RSclAycVZtTThnSHFFdWdyWDZ2cW92c2lQWXBMcnBEOUJTOGQ5UFRuKzUwUmFVOG1mU0FXTlZBZVc2a1ZNMzRSak9ZcWZ2V2h5alZld2hXRm1tYmtDc1h4ZGhCNVdEbjYwUnR2dHZtdEo0TjhlTStWSk9Mb0s4WEtBPT0iLCJuYmYiOjE3NjQ4NDMzMTMsImV4cCI6MTc2NDg0MzYxMywiaXNzIjoiaHR0cHM6Ly9zdWJzdHJhdGUub2ZmaWNlLmNvbS9zdHMvIiwiYXVkIjoiaHR0cHM6Ly9vdXRsb29rLm9mZmljZS5jb20iLCJzc2VjIjoiRTdUTTNmQTc2dGxIQmpDZSIsImVzc2VjIjoiYXJ0aWZhY3QtYXV0by1wcm9kfE0zNjUyMDI1LTA4LTIzVDIyOjE0OjQ2Ljg4ODU3MjRafEhhOTMrOThmWWhzaEtmIn0.RBb6WZNcYJfr9CevDZTKdLFTkBH1f7oq_9DmD9CGI0tq1ybmJAvLQhdH2XEQDpEJX9kYXGz2KjQzyvsCP974XZuUEq4ilJ9m3qcKTUS9pOOzKM_2IMpAbThKqB4dvb5KqVRDfX3Fagu1qjtdeztgkbA1NYiN-9Y5SfudQogZJDsTssiVyM0356J_IQd43jFyLxTjU_v3C4taPjok_-GEUqmbpEMLT_acmpmFnaEkcDmr8IBus3b91pZBnl_yak3i62vwnF3FDt9IHGC9e-uNmLekWPPiP7rMBQl3e-Z7Kvwkn-o6JXJlLLp41Jfx9ROsdaJVC3KzYnqrkjQ8TYZedQ&X-OWA-CANARY=X-OWA-CANARY_cookie_is_null_or_empty&owa=outlook.office.com&scriptVer=20251114001.21&clientId=F63AFA8FA78345AC8DF3183E6E0BE90B&animation=true?w=800&auto=format&fit=crop&q=60"] 
-  },
-  { 
-  id: 2, title: "Vulnerable Machines CTF", date: "JULY 2025", category: "Document",   
-  ov: "Overview", 
-  challenge: "CHALLENGE", 
-  challenge_content: "...", 
-  solution: "SOLUTION", 
-  solution_content: "..." , 
-  tech: "TECHNICAL ARCHITECTURE", 
-  tech_content: "...", 
-  feature: "KEY FEATURES", 
-  feature_content: "...", 
-  design: "USER EXPERIENCE DESIGN", 
-  design_content: "...", 
-  perf: "PERFORMANCE", 
-  perf_content: "...", 
-  result: "OUTCOMES", 
-  result_content: "...", 
-  future: "FUTURE ENHANCEMENTS", 
-  future_content: "...", 
-  conclusion: "Conclusion", 
-  images: ["..."] 
-  },
-  { 
-  id: 3, title: "Cross Site Request Forgery", date: "OCTOBER 2025", category: "Simulation", 
-  ov: "Overview", 
-  challenge: "CHALLENGE", 
-  challenge_content: "...", 
-  solution: "SOLUTION", 
-  solution_content: "..." , 
-  tech: "TECHNICAL ARCHITECTURE", 
-  tech_content: "...", 
-  feature: "KEY FEATURES", 
-  feature_content: "...", 
-  design: "USER EXPERIENCE DESIGN", 
-  design_content: "...", 
-  perf: "PERFORMANCE", 
-  perf_content: "...", 
-  result: "OUTCOMES", 
-  result_content: "...", 
-  future: "FUTURE ENHANCEMENTS", 
-  future_content: "...", 
-  conclusion: "Conclusion", 
-  images: ["..."] 
-  },
-  { 
-  id: 4, title: "EcoPulse Microgrid Dashboard", date: "SEPTEMBER 2025", category: "Simulation", 
-  ov: "Overview", 
-  challenge: "CHALLENGE", 
-  challenge_content: "...", 
-  solution: "SOLUTION", 
-  solution_content: "..." , 
-  tech: "TECHNICAL ARCHITECTURE", 
-  tech_content: "...", 
-  feature: "KEY FEATURES", 
-  feature_content: "...", 
-  design: "USER EXPERIENCE DESIGN", 
-  design_content: "...", 
-  perf: "PERFORMANCE", 
-  perf_content: "...", 
-  result: "OUTCOMES", 
-  result_content: "...", 
-  future: "FUTURE ENHANCEMENTS", 
-  future_content: "...", 
-  conclusion: "Conclusion", 
-  images: ["..."] 
-  },
-  { 
-  id: 5, title: "Portfolio", date: "NOVEMBER 2025", category: "Web Design", 
-  ov: "Overview", 
-  challenge: "CHALLENGE", 
-  challenge_content: "...", 
-  solution: "SOLUTION", 
-  solution_content: "..." , 
-  tech: "TECHNICAL ARCHITECTURE", 
-  tech_content: "...", 
-  feature: "KEY FEATURES", 
-  feature_content: "...", 
-  design: "USER EXPERIENCE DESIGN", 
-  design_content: "...", 
-  perf: "PERFORMANCE", 
-  perf_content: "...", 
-  result: "OUTCOMES", 
-  result_content: "...", 
-  future: "FUTURE ENHANCEMENTS", 
-  future_content: "...", 
-  conclusion: "Conclusion", 
-  images: ["..."] 
-  },
-  {
-  id: 6, title: "Heart Dry with Thirst", date: "November 2025", category: "Game", 
-  ov: "Overview", 
-  challenge: "CHALLENGE", 
-  challenge_content: "...", 
-  solution: "SOLUTION", 
-  solution_content: "..." , 
-  tech: "TECHNICAL ARCHITECTURE", 
-  tech_content: "...", 
-  feature: "KEY FEATURES", 
-  feature_content: "...", 
-  design: "USER EXPERIENCE DESIGN", 
-  design_content: "...", 
-  perf: "PERFORMANCE", 
-  perf_content: "...", 
-  result: "OUTCOMES", 
-  result_content: "...", 
-  future: "FUTURE ENHANCEMENTS", 
-  future_content: "...", 
-  conclusion: "Conclusion", 
-  images: ["..."]
-  },
-  { 
-  id: 7, title: "Photography Zine", date: "COMING SOON", category: "Photography", 
-  ov: "Overview", 
-  challenge: "CHALLENGE", 
-  challenge_content: "...", 
-  solution: "SOLUTION", 
-  solution_content: "..." , 
-  tech: "TECHNICAL ARCHITECTURE", 
-  tech_content: "...", 
-  feature: "KEY FEATURES", 
-  feature_content: "...", 
-  design: "USER EXPERIENCE DESIGN", 
-  design_content: "...", 
-  perf: "PERFORMANCE", 
-  perf_content: "...", 
-  result: "OUTCOMES", 
-  result_content: "...", 
-  future: "FUTURE ENHANCEMENTS", 
-  future_content: "...", 
-  conclusion: "Conclusion", 
-  images: ["..."] 
-  },
-  {
-  id: 8, title: "Timeline", date: "COMING SOON", category: "Game", 
-  ov: "Overview", 
-  challenge: "CHALLENGE", 
-  challenge_content: "...", 
-  solution: "SOLUTION", 
-  solution_content: "..." , 
-  tech: "TECHNICAL ARCHITECTURE", 
-  tech_content: "...", 
-  feature: "KEY FEATURES", 
-  feature_content: "...", 
-  design: "USER EXPERIENCE DESIGN", 
-  design_content: "...", 
-  perf: "PERFORMANCE", 
-  perf_content: "...", 
-  result: "OUTCOMES", 
-  result_content: "...", 
-  future: "FUTURE ENHANCEMENTS", 
-  future_content: "...", 
-  conclusion: "Conclusion", 
-  images: ["..."]
-  },
-];
 
 const Projects = () => {
   const [selectedId, setSelectedId] = useState(null);
