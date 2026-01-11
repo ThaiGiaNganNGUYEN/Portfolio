@@ -200,22 +200,22 @@ const About = () => {
            <div className="uppercase leading-relaxed text-sm md:text-base font-medium space-y-8 animate-float delay-100">
             <div>
               <h3 className="font-bold mb-2">Software Engineering Intern</h3>
-              <p className="text-gray-500">Aubot • 2025-Present</p>
+              <p className="text-gray-500">Aubot • Dec 2025-Present</p>
               <p className="text-sm mt-2">Designed and developed a comprehensive computer science learning platform for children, creating the web interfaces for students and guardians while writing specifications for automated coding exercises.</p>
             </div>
             <div>
               <h3 className="font-bold mb-2">Teaching Assisstant</h3>
-              <p className="text-gray-500">Technologies for Kids • 2025-Present</p>
+              <p className="text-gray-500">Technologies for Kids • Sep 2025-Present</p>
               <p className="text-sm mt-2">Taught students aged 5 to 18 in drone coding & creative flight, coding & robotics, and 2D game design programs.</p>
             </div>
             <div>
               <h3 className="font-bold mb-2">Judge</h3>
-              <p className="text-gray-500">MakeX Robotics Competition • 2025</p>
+              <p className="text-gray-500">MakeX Robotics Competition • Jul 2025</p>
               <p className="text-sm mt-2">Judge for the 2025 International Robotics Competition MakeX held at Perth Government House.</p>
             </div>
             <div>
               <h3 className="font-bold mb-2">Mentor</h3>
-              <p className="text-gray-500">CoderDojo WA • 2025-Present</p>
+              <p className="text-gray-500">CoderDojo WA • Mar 2025-Present</p>
               <p className="text-sm mt-2">Mentored neurodivergent adolescents in Python coding and Lego Robotics.</p>
             </div>
           </div>
