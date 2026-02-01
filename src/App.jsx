@@ -589,10 +589,10 @@ const Resume = () => (
     <div className="flex justify-between items-end mb-8">
       <div>
       	<h1 className="text-6xl font-black uppercase">Resume</h1>
-      	<p className="text-gray-500">Last Updated: Nov 2025</p>
+      	<p className="text-gray-500">Last Updated: Feb 2026</p>
       </div>
       <button className="flex items-center gap-2 bg-black text-white px-6 py-3 text-sm font-bold uppercase hover:bg-grey-800 transition-colors">
-       <a href={resumePDF} download="Grey-Nguyen-Resume-Summer-2025.pdf" className="flex items-center gap-2 text-white hover:text-gray-300">
+       <a href={resumePDF} download="Grey-Nguyen-Resume-2026.pdf" className="flex items-center gap-2 text-white hover:text-gray-300">
        	<Download size={16} /> Download PDF
        </a>
       </button>
