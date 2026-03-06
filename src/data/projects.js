@@ -12,7 +12,7 @@ export const PROJECTS_DATA = [
     langs: "C, Makefile",
     ov: "A 2D terminal-based game where the player moves and shoots laser to defeat an enemy tank and win", 
     challenge: "CHALLENGE", 
-    challenge_content: "The challenge is to implement a simple game inspired from a classical puzzle game 'Laser Tank'. The game loads up a map stored as a .txt file. Player can move up/down/left/right and shoot laser, while enemy tank's position is in a fixed location and direction. Mirrors ('/' or '\\') will reflect laser beams off of them accordingly wwhen hit. Player wins if they shoot the enemy tank; else if player stand in front of the enemy tank, they will get shot and lose", 
+    challenge_content: "The challenge is to implement a simple game inspired from a classical puzzle game 'Laser Tank'. The game loads up a map stored as a .txt file. Player can move up/down/left/right and shoot laser, while enemy tank's position is in a fixed location and direction. Mirrors ('/' or '\\') will reflect laser beams off of them accordingly when hit. Player wins if they shoot the enemy tank; else if player stand in front of the enemy tank, they will get shot and lose", 
     solution: "SOLUTION", 
     solution_content: "The program will read the parameters from an input file and utilize them for the game configuration and create a dynamically-allocated 2D char array to make a simple ASCII-based game then receive user input to control the flow of the game." , 
     tech: "TECHNICAL ARCHITECTURE", 
