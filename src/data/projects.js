@@ -7,7 +7,8 @@ import yogImg from '../assets/yog.png';
 
 export const PROJECTS_DATA = [
   { 
-    id: 1, title: "Laser Tank", date: "MAY 2024", category: "Game Development", 
+  id: 1, title: "Laser Tank", date: "MAY 2024", category: "Game Development", 
+  website: "https://onlinegdb.com/OdaHYKcz0",
     langs: "C, Makefile",
     ov: "A 2D terminal-based game where the player moves and shoots laser to defeat an enemy tank and win", 
     challenge: "CHALLENGE", 
@@ -30,7 +31,8 @@ export const PROJECTS_DATA = [
     images: [laserTankImg] 
   },
   { 
-    id: 2, title: "Vulnerable Machines CTF", date: "JULY 2025", category: "Document",
+  id: 2, title: "Vulnerable Machines CTF", date: "JULY 2025", category: "Document",
+  website: "https://github.com/ThaiGiaNganNGUYEN/VulHub-Machines-Walkthrough",
     langs: "Kali Linux",
     ov: "A series of comprehensive penetration testing and defense walkthroughs for vulnerable virtual machines (VMs).", 
     challenge: "CHALLENGE", 
@@ -47,7 +49,8 @@ export const PROJECTS_DATA = [
     images: [vulnHubImg] 
   },
   { 
-    id: 3, title: "Cross Site Request Forgery", date: "OCTOBER 2025", category: "Simulation",
+  id: 3, title: "Cross Site Request Forgery", date: "OCTOBER 2025", category: "Simulation",
+  website: "https://www.youtube.com/watch?v=yKn9ZSwzeBI",
     langs: "PHP, HTML, CSS, JavaScript",
     ov: "A Cross-Site Request Forgery (CSRF) attack simulation on a banking application. Demonstrating how an attacker can trick users into performing unwanted actions.", 
     challenge: "CHALLENGE", 
@@ -70,7 +73,8 @@ export const PROJECTS_DATA = [
     images: [csrfImg] 
   },
   { 
-    id: 4, title: "EcoPulse Microgrid Dashboard", date: "SEPTEMBER 2025", category: "Dashboard", 
+  id: 4, title: "EcoPulse Microgrid Dashboard", date: "SEPTEMBER 2025", category: "Dashboard", 
+  website: "https://eco-pulse-microgrid.vercel.app/",
     langs: "JavaScript, HTML, CSS",
     ov: "Develop a solution that provides full visibility into the operation of a microgrid.", 
     challenge: "CHALLENGE", 
@@ -93,13 +97,15 @@ export const PROJECTS_DATA = [
     images: [microgridImg] 
   },
   { 
-    id: 5, title: "Portfolio", date: "NOVEMBER 2025", category: "Web Design", 
+  id: 5, title: "Portfolio", date: "NOVEMBER 2025", category: "Web Design", 
+  website: "https://greynxtgn.vercel.app/",
     langs: "JavaScript, HTML, CSS",
     ov: "My personal portfolio website.", 
     images: [portfolioImg] 
   },
   {
-    id: 6, title: "Heart Dry with Thirst", date: "November 2025", category: "Simulation", 
+  id: 6, title: "Heart Dry with Thirst", date: "November 2025", category: "Simulation", 
+  website: "https://heart-dry-with-thirst.vercel.app/",
     langs: "JavaScript, CSS",
     ov: "A digital solution developed to upgrade aging water infrastructure without causing supply disruptions or requiring extensive excavation.", 
     challenge: "CHALLENGE", 

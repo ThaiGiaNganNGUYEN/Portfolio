@@ -226,7 +226,7 @@ const About = () => {
             <div className="grid grid-cols-2 gap-4">
               <div>
                  <h3 className="font-bold mb-4 border-b border-black pb-2">Languages</h3>
-                 <ul className="space-y-2 text-gray-600">
+                 <ul className="font-medium space-y-2 text-gray-600">
                    <li>Python</li>
                    <li>TypeScript</li>
                    <li>JavaScript</li>
@@ -409,6 +409,18 @@ const ProjectDetail = ({ project, onNext, onPrev, onClose, hasNext, hasPrev }) =
                   <span>{project.langs}</span>
                 </div>
               </div>
+              {project.website && (
+                <div className="mt-8">
+                  <a
+                    href={project.website}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center w-full bg-black text-white px-6 py-3 text-xs font-bold uppercase tracking-widest hover:bg-gray-800 transition-colors"
+                  >
+                    View Demonstration
+                  </a>
+                </div>
+              )}
            </div>
         </div>
         <div className="md:col-span-8">
