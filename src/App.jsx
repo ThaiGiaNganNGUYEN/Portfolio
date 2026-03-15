@@ -220,62 +220,164 @@ const About = () => {
             </div>
           </div>
         );
-      case 'EXPERTISE':
+      case 'SKILLS':
         return (
           <div className="uppercase leading-relaxed text-sm md:text-base font-medium animate-float delay-100">
             <div className="grid grid-cols-2 gap-4">
               <div>
                  <h3 className="font-bold mb-4 border-b border-black pb-2">Languages</h3>
-                 <ul className="font-medium space-y-2 text-gray-600">
-                   <li>Python</li>
-                   <li>TypeScript</li>
-                   <li>JavaScript</li>
-                   <li>Java</li>
-                   <li>C++</li>
-                   <li>SQL</li>
-                   <li>HTML/CSS</li>
-                   <li>C</li>
+                 <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 font-medium text-gray-600">
+                  <li className="px-3 py-1 rounded-full bg-gray-100 text-xs md:text-sm flex items-center gap-2">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python logo" className="w-4 h-4" />
+                    <span>Python</span>
+                  </li>
+                  <li className="px-3 py-1 rounded-full bg-gray-100 text-xs md:text-sm flex items-center gap-2">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" alt="TypeScript logo" className="w-4 h-4" />
+                    <span>TypeScript</span>
+                  </li>
+                  <li className="px-3 py-1 rounded-full bg-gray-100 text-xs md:text-sm flex items-center gap-2">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript logo" className="w-4 h-4" />
+                    <span>JavaScript</span>
+                  </li>
+                  <li className="px-3 py-1 rounded-full bg-gray-100 text-xs md:text-sm flex items-center gap-2">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java logo" className="w-4 h-4" />
+                    <span>Java</span>
+                  </li>
+                  <li className="px-3 py-1 rounded-full bg-gray-100 text-xs md:text-sm flex items-center gap-2">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" alt="C++ logo" className="w-4 h-4" />
+                    <span>C++</span>
+                  </li>
+                  <li className="px-3 py-1 rounded-full bg-gray-100 text-xs md:text-sm flex items-center gap-2">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="SQL logo" className="w-4 h-4" />
+                    <span>SQL</span>
+                  </li>
+                  <li className="px-3 py-1 rounded-full bg-gray-100 text-xs md:text-sm flex items-center gap-2">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML/CSS logo" className="w-4 h-4" />
+                    <span>HTML/CSS</span>
+                  </li>
+                  <li className="px-3 py-1 rounded-full bg-gray-100 text-xs md:text-sm flex items-center gap-2">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" alt="C logo" className="w-4 h-4" />
+                    <span>C</span>
+                  </li>
                  </ul>
               </div>
               <div>
                  <h3 className="font-bold mb-4 border-b border-black pb-2">Frameworks & Libraries</h3>
-                 <ul className="space-y-2 text-gray-600">
-                   <li>Next.js</li>
-                   <li>React.js</li>
-                   <li>Node.js</li>
-                   <li>Tailwind CSS</li>
-                   <li>Framer Motion</li>
-                   <li>Qt</li>
-                   <li>PartyKit</li>
-                   <li>OpenAI Whisper</li>
+                 <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-gray-600">
+                  <li className="px-3 py-1 rounded-full bg-gray-100 text-xs md:text-sm flex items-center gap-2">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" alt="Next.js logo" className="w-4 h-4" />
+                    <span>Next.js</span>
+                  </li>
+                  <li className="px-3 py-1 rounded-full bg-gray-100 text-xs md:text-sm flex items-center gap-2">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React.js logo" className="w-4 h-4" />
+                    <span>React.js</span>
+                  </li>
+                  <li className="px-3 py-1 rounded-full bg-gray-100 text-xs md:text-sm flex items-center gap-2">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js logo" className="w-4 h-4" />
+                    <span>Node.js</span>
+                  </li>
+                  <li className="px-3 py-1 rounded-full bg-gray-100 text-xs md:text-sm flex items-center gap-2">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg" alt="Tailwind CSS logo" className="w-4 h-4" />
+                    <span>Tailwind CSS</span>
+                  </li>
+                  <li className="px-3 py-1 rounded-full bg-gray-100 text-xs md:text-sm flex items-center gap-2">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/framermotion/framermotion-original.svg" alt="Framer Motion logo" className="w-4 h-4" />
+                    <span>Framer Motion</span>
+                  </li>
+                  <li className="px-3 py-1 rounded-full bg-gray-100 text-xs md:text-sm flex items-center gap-2">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/qt/qt-original.svg" alt="Qt logo" className="w-4 h-4" />
+                    <span>Qt</span>
+                  </li>
+                  <li className="px-3 py-1 rounded-full bg-gray-100 text-xs md:text-sm flex items-center gap-2">
+                    <span className="w-4 h-4 rounded-full bg-gray-800 text-[10px] flex items-center justify-center text-white">P</span>
+                    <span>PartyKit</span>
+                  </li>
+                  <li className="px-3 py-1 rounded-full bg-gray-100 text-xs md:text-sm flex items-center gap-2">
+                    <span className="w-4 h-4 rounded-full bg-gray-800 text-[10px] flex items-center justify-center text-white">W</span>
+                    <span>OpenAI Whisper</span>
+                  </li>
                  </ul>
               </div>
               <div>
                  <h3 className="font-bold mb-4 border-b border-black pb-2">Tools & Platform</h3>
-                 <ul className="space-y-2 text-gray-600">
-                   <li>Docker</li>
-                   <li>Git</li>
-                   <li>GitHub</li>
-                   <li>GitLab</li>
-                   <li>Vercel</li>
-                   <li>Linux</li>
-                   <li>Windows</li>
-                   <li>LaTeX</li>
-                   <li>AWS</li>
-                   <li>Google Analytics</li>
-                   <li>Mapbox</li>
-                   <li>Clerk</li>
+                 <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-gray-600">
+                  <li className="px-3 py-1 rounded-full bg-gray-100 text-xs md:text-sm flex items-center gap-2">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="Docker logo" className="w-4 h-4" />
+                    <span>Docker</span>
+                  </li>
+                  <li className="px-3 py-1 rounded-full bg-gray-100 text-xs md:text-sm flex items-center gap-2">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git logo" className="w-4 h-4" />
+                    <span>Git</span>
+                  </li>
+                  <li className="px-3 py-1 rounded-full bg-gray-100 text-xs md:text-sm flex items-center gap-2">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub logo" className="w-4 h-4" />
+                    <span>GitHub</span>
+                  </li>
+                  <li className="px-3 py-1 rounded-full bg-gray-100 text-xs md:text-sm flex items-center gap-2">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/gitlab/gitlab-original.svg" alt="GitLab logo" className="w-4 h-4" />
+                    <span>GitLab</span>
+                  </li>
+                  <li className="px-3 py-1 rounded-full bg-gray-100 text-xs md:text-sm flex items-center gap-2">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vercel/vercel-original.svg" alt="Vercel logo" className="w-4 h-4" />
+                    <span>Vercel</span>
+                  </li>
+                  <li className="px-3 py-1 rounded-full bg-gray-100 text-xs md:text-sm flex items-center gap-2">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" alt="Linux logo" className="w-4 h-4" />
+                    <span>Linux</span>
+                  </li>
+                  <li className="px-3 py-1 rounded-full bg-gray-100 text-xs md:text-sm flex items-center gap-2">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/windows8/windows8-original.svg" alt="Windows logo" className="w-4 h-4" />
+                    <span>Windows</span>
+                  </li>
+                  <li className="px-3 py-1 rounded-full bg-gray-100 text-xs md:text-sm flex items-center gap-2">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/latex/latex-original.svg" alt="LaTeX logo" className="w-4 h-4" />
+                    <span>LaTeX</span>
+                  </li>
+                  <li className="px-3 py-1 rounded-full bg-gray-100 text-xs md:text-sm flex items-center gap-2">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" alt="AWS logo" className="w-4 h-4" />
+                    <span>AWS</span>
+                  </li>
+                  <li className="px-3 py-1 rounded-full bg-gray-100 text-xs md:text-sm flex items-center gap-2">
+                    <span className="w-4 h-4 rounded-full bg-[#E37400] text-[8px] flex items-center justify-center text-white">GA</span>
+                    <span>Google Analytics</span>
+                  </li>
+                  <li className="px-3 py-1 rounded-full bg-gray-100 text-xs md:text-sm flex items-center gap-2">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mapbox/mapbox-original.svg" alt="Mapbox logo" className="w-4 h-4" />
+                    <span>Mapbox</span>
+                  </li>
+                  <li className="px-3 py-1 rounded-full bg-gray-100 text-xs md:text-sm flex items-center gap-2">
+                    <span className="w-4 h-4 rounded-full bg-black text-[8px] flex items-center justify-center text-white">C</span>
+                    <span>Clerk</span>
+                  </li>
                  </ul>
               </div>
               <div>
                  <h3 className="font-bold mb-4 border-b border-black pb-2">Database & BaaS</h3>
-                 <ul className="space-y-2 text-gray-600">
-                   <li>PostgreSQL</li>
-                   <li>Supabase</li>
-                   <li>MongoDB</li>
-                   <li>MySQL</li>
-                   <li>SQLite</li>
-                   <li>Firebase</li>
+                 <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-gray-600">
+                  <li className="px-3 py-1 rounded-full bg-gray-100 text-xs md:text-sm flex items-center gap-2">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" alt="PostgreSQL logo" className="w-4 h-4" />
+                    <span>PostgreSQL</span>
+                  </li>
+                  <li className="px-3 py-1 rounded-full bg-gray-100 text-xs md:text-sm flex items-center gap-2">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/supabase/supabase-original.svg" alt="Supabase logo" className="w-4 h-4" />
+                    <span>Supabase</span>
+                  </li>
+                  <li className="px-3 py-1 rounded-full bg-gray-100 text-xs md:text-sm flex items-center gap-2">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" alt="MongoDB logo" className="w-4 h-4" />
+                    <span>MongoDB</span>
+                  </li>
+                  <li className="px-3 py-1 rounded-full bg-gray-100 text-xs md:text-sm flex items-center gap-2">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL logo" className="w-4 h-4" />
+                    <span>MySQL</span>
+                  </li>
+                  <li className="px-3 py-1 rounded-full bg-gray-100 text-xs md:text-sm flex items-center gap-2">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sqlite/sqlite-original.svg" alt="SQLite logo" className="w-4 h-4" />
+                    <span>SQLite</span>
+                  </li>
+                  <li className="px-3 py-1 rounded-full bg-gray-100 text-xs md:text-sm flex items-center gap-2">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg" alt="Firebase logo" className="w-4 h-4" />
+                    <span>Firebase</span>
+                  </li>
                  </ul>
               </div>
             </div>
