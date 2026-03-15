@@ -220,7 +220,7 @@ const About = () => {
             </div>
           </div>
         );
-      case 'SKILLS':
+      case 'EXPERTISE':
         return (
           <div className="uppercase leading-relaxed text-sm md:text-base font-medium animate-float delay-100">
             <div className="grid grid-cols-2 gap-4">
