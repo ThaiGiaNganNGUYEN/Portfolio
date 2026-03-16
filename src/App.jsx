@@ -148,7 +148,7 @@ const Home = () => {
         <p
           className="text-xs md:text-sm leading-relaxed max-w-3xl mx-auto uppercase tracking-wide text-gray-300 animate-float delay-200"
         >
-          WHERE CURIOSITY MEETS PROBLEM SOLVING. THIS IS A SPACE WHERE I EXPLORE CYBERSECURITY, CODE, AND CREATIVITY TO BUILD SOLUTIONS THAT EMPOWER PEOPLE AND MAKE TECHNOLOGY FEEL A LITTLE MORE HUMAN.
+          WHERE CURIOSITY MEETS PROBLEM SOLVING.<br>THIS IS A SPACE WHERE I EXPLORE CYBERSECURITY, CODE, AND CREATIVITY TO BUILD SOLUTIONS THAT EMPOWER PEOPLE AND MAKE TECHNOLOGY FEEL A LITTLE MORE HUMAN.
         </p>
        
         <div className="animate-float delay-300">
